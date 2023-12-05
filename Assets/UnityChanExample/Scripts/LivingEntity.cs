@@ -53,3 +53,29 @@ public class LivingEntity : MonoBehaviour, IDamageable {
         dead = true;
     }
 }
+
+
+public class Player : MonoBehaviour
+{
+    public event Action onDeath;
+
+    public void Die()
+    {
+        onDeath();
+    }
+}
+
+public class GameData : MonoBehaviour
+{
+    private void Start()
+    {
+        Player player = FindObjectOfType<Player>();
+        player.onDeath += Save;
+        //player.onDeath();
+    }
+
+    public void Save()
+    {
+        Debug.Log("게임 저장...");
+    }
+}

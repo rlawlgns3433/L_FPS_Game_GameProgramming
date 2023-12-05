@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Rotate() {
         float turn = playerInput.rotate * rotateSpeed * Time.deltaTime;
 
+
         playerRigidbody.rotation = playerRigidbody.rotation * Quaternion.Euler(0, turn, 0);
     }
 }
